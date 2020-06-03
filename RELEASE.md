@@ -4,6 +4,9 @@
 *   Added TFX DSL IR compiler that encodes a TFX pipeline into a DSL proto.
 
 *   Supported feature based split partition in ExampleGen.
+*   Changed Span information as a property of ExampleGen's output artifact.
+    Deprecated ExampleGen input (external) artifact.
+
 
 ## Bug fixes and other changes
 *   Added Tuner component, which is still work in progress.
@@ -18,6 +21,11 @@
 ### For pipeline authors
 *   Moved BigQueryExampleGen to `tfx.extensions.google_cloud_big_query`. The
     previous module path from `tfx.components` is not available anymore.
+
+*   Changed ExampleGen to take a string as input source directly: Marked `input`
+    as deprecated, changed type of `input_base` to Text instead of Channel.
+*   Marked ExternalArtifact and `external_input` function as deprecated.
+*   Fully deprecated csv_input and tfrecord_input in dsl_utils.
 
 ### For component authors
 
